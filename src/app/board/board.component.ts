@@ -12,14 +12,14 @@ export class BoardComponent implements OnInit {
   diceValue: number = 1;
   snakes = [
     { start: 16, end: 6 },
-    { start: 47, end: 26 },
-    { start: 65, end: 34 },
-    { start: 84, end: 35 },
+    { start: 48, end: 26 },
+    { start: 66, end: 34 },
+    { start: 86, end: 35 },
     { start: 93, end: 20 },
     { start: 99, end: 36 }
   ];
   ladders = [
-    { start: 2, end: 39 },
+    { start: 2, end: 26 },
     { start: 29, end: 63 },
     { start: 40, end: 80 },
     { start: 56, end: 85 },
@@ -45,21 +45,7 @@ export class BoardComponent implements OnInit {
     }
     return position;
   }
-  // boardCells(): number[] {
-  //   const cells: number[] = [];
 
-  //   for (let row = 1; row <= 10; row++) {
-  //     const isReverse = row % 2 === 0;
-
-  //     for (let col = 1; col <= 10; col++) {
-  //       const baseCell = (row - 1) * 10 + col;
-  //       const cell = isReverse ? baseCell + 9 - 2 * (col - 1) : baseCell;
-  //       cells.push(cell);
-  //     }
-  //   }
-
-  //   return cells;
-  // }
   boardCells(): number[] {
     const cells: number[] = [];
   
@@ -77,7 +63,6 @@ export class BoardComponent implements OnInit {
   }
 
   isPlayerInCell(cell: number): boolean {
-    // Check if any player is in the given cell
     return this.players.some(player => player.position === cell);
   }
 
@@ -92,7 +77,6 @@ export class BoardComponent implements OnInit {
   }
 
   isGameOver(): boolean {
-    // Check if the game is over
     return this.players.some(player => player.position >= 100);
   }
 
@@ -106,10 +90,8 @@ export class BoardComponent implements OnInit {
         const currentPlayer = this.players[this.currentPlayerIndex];
         currentPlayer.position += this.diceValue;
 
-        // Handle snakes and ladders
         currentPlayer.position = this.handleSnakesAndLadders(currentPlayer.position);
 
-        // Check for a winner
         if (currentPlayer.position >= 100) {
           alert(`Player ${currentPlayer.id} wins!`);
           this.resetGame();

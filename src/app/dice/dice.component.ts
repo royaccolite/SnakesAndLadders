@@ -9,14 +9,5 @@ export class DiceComponent {
   @Input() diceValue !: number;
   @Input() rolling: boolean = false;
 
-  // playClickSound(): void {
-  //   const audio = new Audio('assets\rpg-dice-rolling-95182.mp3');
-  //   audio.play();
-  // }
-
-  // onClick(): void {
-  //   this.playClickSound();
-  // }
-
 
 }

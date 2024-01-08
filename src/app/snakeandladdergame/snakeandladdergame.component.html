@@ -1,0 +1,51 @@
+
+
+  <!-- snakeandladdergame.component.html -->
+
+<div>
+    <h1 class="header">Snake and Ladder Game</h1>
+
+    <div *ngIf="victoryMessage">{{ victoryMessage }}</div>
+
+    <div *ngIf="!isStarted" class="inp">
+    <input type="number" [(ngModel)]="userInput" name="userInput" placeholder="Enter no of players(<5)" class="input" /><br>
+    <button (click)="onButtonClick()">Submit</button>
+    </div>
+    <div class="grid-container" *ngIf="isStarted">
+      <div *ngFor="let cell of gridCells" class="grid-cell">
+        {{ cell }}
+        <div *ngIf="snakes[cell]">
+            <img src="assets/snake.png" alt="snake" class="snake">
+            <!-- <p>{{ cell - snakeEndPositions[cell] }}</p> -->
+        </div>
+        <div *ngIf="ladders[cell]">
+            <img src="assets/ladder2.png" alt="snake" class="ladder">
+            <!-- <p>{{ cell - ladderEndPositions[cell] }}</p> -->
+        </div>
+  
+        <!-- Display the icon of the player at the current cell -->
+        <div *ngFor="let player of players" class="player" [ngStyle]="getPlayerStyle(player, cell)">
+          <img [src]="'assets/icons/' + player.icon" alt="Player {{ player.id }}" class="icon"/>
+        </div>
+      </div>
+    </div>
+    <div class="dice-container" *ngIf="isStarted">
+      <!-- <img class="dice" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">
+      <img class="dice" *ngIf="diceRoll !== null" [src]="'assets/dice/dice' + diceRoll + '.png'" alt="Dice" [ngClass]="{'blue': currentPlayer === 2, 'red': currentPlayer === 1, 'yellow': currentPlayer === 3, 'green': currentPlayer === 4}" (click)="rollDice()"> -->
+      <img class="dice rolling" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">
+      <img class="dice" *ngIf="diceRoll !== null" [src]="'assets/dice/dice' + diceRoll + '.png'" alt="Dice"
+      [ngClass]="{'rolling': isRolling, 'blue': currentPlayer === 2, 'red': currentPlayer === 1, 'yellow': currentPlayer === 3, 'green': currentPlayer === 4}"
+      (click)="rollDice()"> 
+      
+      <audio #audioPlayer>
+        <source src="assets/diceSound.mp3" type="audio/mp3">
+    </audio>
+      <p *ngIf="currentPlayer=== 2 && isAudio"> Red is moved to {{newPos}}</p>
+      <p *ngIf="currentPlayer=== 3 && isAudio"> Blue is moved to {{newPos}}</p>
+      <p *ngIf="currentPlayer=== 4 && isAudio"> Yellow is moved to {{newPos}}</p>
+      <p *ngIf="currentPlayer=== 1 && num!==0 && isAudio"> Green is moved to {{newPos}}</p>
+    </div>
+  </div>
+  
+
+  

@@ -1,0 +1,151 @@
+
+.grid-container {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-gap: 2px;
+  margin-left: 35%;
+  
+}
+h1{
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+.grid-cell {
+  text-align: center;
+
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  position: relative;
+  background: linear-gradient(to bottom,  #E2E2E2 0%,#DBDBDB 50%,#D1D1D1 51%,#FEFEFE 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  
+}
+
+.dice.rolling {
+  animation: rollDiceAnimation 1s ease-in-out; /* Adjust the duration as needed */
+}
+
+@keyframes rollDiceAnimation {
+  0% {
+    transform: rotateX(0deg);
+    
+  }
+  25% {
+    transform: rotateX(180deg);
+  }
+  50% {
+    transform: rotateX(360deg);
+  }
+  75% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.dice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+p{
+  color: white;
+  align-self: center;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.inp{
+  text-align: center;
+  margin-top: 20px;
+  // margin-left: 14cm;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+}
+.input{
+  size:60px;
+  text-align: center;
+  font-size: 40px;
+  padding: 30px;
+  border-radius: 13px;
+}
+
+button{
+  // margin-left:1.5cm;
+  text-align: center;
+  size: 50px;
+  margin-top: 1cm;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.dice.red
+  {
+    background-color: rgb(246, 77, 77);
+  }
+  .dice.blue
+  {
+    background-color: rgb(40, 162, 227);
+  }
+  .dice.yellow
+  {
+    background-color: rgb(207, 231, 19);
+  }
+  .dice.green
+  {
+    background-color: rgb(5, 117, 13);
+  }
+
+
+.player {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Ensure the player icons appear above the grid */
+}
+
+.snake {
+  width: 49px;
+  height: 49px;
+  //background-color: blue;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 0; /* Ensure snakes appear below the player icons */
+}
+
+.ladder {
+  width: 55px;
+  height: 55px;
+  //background-color: green;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 0;
+}
+
+
+.grid-cell:hover {
+  background-color: rgb(250, 202, 250);
+  cursor: pointer;
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
+}
+.dice {
+  width: 40px; /* Adjust the dice width */
+  height: 40px; /* Adjust the dice height */
+  cursor: pointer;
+  align-self: center;
+}
