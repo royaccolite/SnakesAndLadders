@@ -1,0 +1,41 @@
+
+<!-- <div class="container">
+  <div class="board">
+    <div *ngFor="let cell of boardCells()" class="cell">
+        <app-player 
+        *ngIf="isPlayerInCell(cell)"
+        [player]="getPlayerInCell(cell)"
+        ></app-player>    
+      {{ cell }}
+    </div>
+  </div>
+  <div>
+    <app-dice [diceValue]="diceValue" [rolling]="rollingDice"  (click)="rollDice()" ></app-dice>
+  </div>
+</div> -->
+
+<!-- board.component.html -->
+<div class="container">
+  <div class="board">
+    <div *ngFor="let cell of boardCells()" class="cell">
+      <!-- <app-player *ngIf="isPlayerInCell(cell)" [player]="getPlayerInCell(cell)"></app-player> -->
+      <div class="cell-content">
+        <span *ngIf="hasSnake(cell)" class="snake-icon">𓆙</span>
+        <img src="assets/ladder.png" *ngIf="hasLadder(cell)" class="ladder-icon"/>
+        {{ hasSnake(cell) ? getSnakeEnd(cell) : (hasLadder(cell) ? getLadderEnd(cell) : cell) }}
+      
+        <ng-container *ngFor="let player of getPlayersInCell(cell)">
+          <app-player [player]="player"></app-player>
+        </ng-container>
+      
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; font-size: 20px;">
+    <app-dice [diceValue]="diceValue" [rolling]="rollingDice" (click)="rollDice()"></app-dice>
+    <div>
+      <p style="font-size: 27px;">Player {{currentPlayerIndex+1}}'s Turn</p>
+    </div>
+  </div>
+</div>
+

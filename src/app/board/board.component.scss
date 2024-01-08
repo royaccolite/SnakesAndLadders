@@ -1,0 +1,45 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 5px;
+  
+}
+
+.cell {
+  border-radius: 1px;
+  border: 1px solid #49a0e8;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgb(197, 195, 234) 0%, rgb(226, 162, 251) 35%, rgb(134, 124, 242) 100%);
+   padding: 10px;
+  height: 40px;
+  width: 60px;
+  text-align: center;
+  position: relative;
+  width: 60px;
+  color: white;
+}
+
+.cell app-player {
+  position: absolute;
+  top: -14px;
+  left: -35px;
+}
+
+
+.cell-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.snake-icon {
+  font-size: 80px;
+}
+
+.ladder-icon {
+  // font-size: 10px;
+  height: 30px;
+  width: 80px;
+  // margin-top: 25px;
+}

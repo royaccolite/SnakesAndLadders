@@ -1,0 +1,5 @@
+<!-- <div class="dice">Dice Value: {{ diceValue }}</div> -->
+<div class="dice" [class.rolling]="rolling" (click)="ref.play()">
+    <span *ngIf="!rolling">{{ diceValue }}</span>
+</div>
+<audio #ref src="assets/rpg-dice-rolling-95182.mp3"></audio>

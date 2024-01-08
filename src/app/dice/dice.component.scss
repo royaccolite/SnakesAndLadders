@@ -1,0 +1,40 @@
+.dice {
+  border: 1px solid #f37979;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  transition: transform 2s ease-out;
+  color: white;
+  background-color: rgb(129, 234, 234);
+  border-radius: 8px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.rolling {
+  animation: rollDice 2s ease-out infinite;
+}
+
+@keyframes rollDice {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(360deg);
+  }
+
+  50% {
+    transform: rotate(720deg);
+  }
+
+  75% {
+    transform: rotate(1080deg);
+  }
+
+  100% {
+    transform: rotate(1440deg);
+  }
+}
